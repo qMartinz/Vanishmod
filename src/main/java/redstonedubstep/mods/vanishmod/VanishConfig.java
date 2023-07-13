@@ -39,7 +39,7 @@ public class VanishConfig {
 		Config(ForgeConfigSpec.Builder builder) {
 			hidePlayersFromWorld = builder
 					.comment(" --- Vanishmod Config File --- ", "Should vanished players be physically hidden from the world? This includes sound and particle suppression")
-					.define("hidePlayersFromWorld", true);
+					.define("hidePlayersFromWorld", false);
 			hidePlayersFromPlayerLists = builder
 					.comment("Should vanished players be hidden from player lists such as the /list command and the list in the Multiplayer screen?")
 					.define("hidePlayersFromPlayerLists", true);
@@ -47,11 +47,11 @@ public class VanishConfig {
 					.comment("Should vanished players not be targetable by other players via command selectors (so players that cannot see vanished players cannot target them with e.g. /msg or /give)?")
 					.define("disableCommandTargeting", true);
 			hidePlayerNameInChat = builder
-					.comment("When unvanished players receive a chat message from a vanished player, should the name of the player that sent the message be replaced with \"vanished\" (in gray color)?")
-					.define("hidePlayerNameInChat", false);
+					.comment("When unvanished players receive a chat message from a vanished player, should the name of the player that sent the message be replaced with \"???\" (in gray color and obfuscated)?")
+					.define("hidePlayerNameInChat", true);
 			sendFakeJoinLeaveMessages = builder
 					.comment("Should players see a fake join/leave message in their chat when another player (un-)vanishes?")
-					.define("sendFakeJoinLeaveMessages", true);
+					.define("sendFakeJoinLeaveMessages", false);
 			fixModCompatibility = builder
 					.comment("Should there be a (potential) fix for other mods uncovering the presence of vanished players? This may severely increase CPU usage and is thus not recommended")
 					.define("fixModCompatibility", false);
@@ -63,10 +63,10 @@ public class VanishConfig {
 					.define("seeVanishedTeamPlayers", false);
 			indirectSoundSuppression = builder
 					.comment("Should this mod try to detect and suppress sounds that are indirectly caused by vanished players (e.g. pressing a button or hitting an entity)? This detection might accidentally suppress a few sounds unrelated to vanished players, disable this detection if too many sound bugs occur")
-					.define("indirectSoundSuppression", true);
+					.define("indirectSoundSuppression", false);
 			indirectParticleSuppression = builder
 					.comment("Should this mod try to detect and suppress particles that are indirectly caused by vanished players (e.g. eating or block breaking particles)? This detection might accidentally suppress particles unrelated to vanished players, disable this detection if too many visual bugs occur")
-					.define("indirectParticleSuppression", true);
+					.define("indirectParticleSuppression", false);
 
 			vanishCommandPermissionLevel = builder
 					.comment("What op permission level should be the requirement for being able to execute /vanish? (A value of 2 or lower allows command blocks to execute /vanish)")
